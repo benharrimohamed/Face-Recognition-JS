@@ -1,0 +1,22 @@
+{
+  "name": "face-recognition",
+  "version": "1.0.0",
+  "description": "Simple implementation for face recognition using face-api.js library",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benharrimohamed/Face-Recognition-JS.git"
+  },
+  "author": "BEN HARRI MOHAMMED",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benharrimohamed/Face-Recognition-JS/issues"
+  },
+  "homepage": "https://github.com/benharrimohamed/Face-Recognition-JS#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
