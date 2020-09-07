@@ -5,7 +5,6 @@ Promise.all([
   faceapi.nets.faceLandmark68Net.loadFromUri('/weights'),
   faceapi.nets.faceRecognitionNet.loadFromUri('/weights'),
   faceapi.nets.faceExpressionNet.loadFromUri('/weights'),
-  faceapi.nets.ageGengerNet.loadFromUri('/weights')
 ]).then(OpenWebCam)
 
 
@@ -30,13 +29,11 @@ video.addEventListener('play', () => {
     await faceapi.detectAllFaces(video, new faceapi.
       TinyFaceDetectorOptions()).
         withFaceLandmarks().
-        withFaceExpressions().
-        withAgeAndGender()
+        withFaceExpressions()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-    faceapi.draw.drawAgeAndGender(canvas, resizedDetections)
   }, 100)
 })
