@@ -7,6 +7,7 @@ const sad = document.getElementById('sad')
 const angry = document.getElementById('angry')
 const surprised = document.getElementById('surprised')
 const gender = document.getElementById('gender')
+const age = document.getElementById('age')
 const genderPer = document.getElementById('genderPer')
 
 
@@ -53,12 +54,13 @@ video.addEventListener('play', () => {
     
     if (detections) {
     var naturalPer = parseInt(((detections.expressions.neutral)*100))
-    var happyPer = await  parseInt(((detections.expressions.happy)*100))
-    var sadPer = await  parseInt(((detections.expressions.sad)*100))
-    var angryPer = await parseInt(((detections.expressions.angry)*100))
-    var surprisedPer = await parseInt(((detections.expressions.surprised)*100))
-    var genderRec = await detections.gender
-    var genderPro = await  detections.genderProbability
+    var happyPer = parseInt(((detections.expressions.happy)*100))
+    var sadPer = parseInt(((detections.expressions.sad)*100))
+    var angryPer = parseInt(((detections.expressions.angry)*100))
+    var surprisedPer = parseInt(((detections.expressions.surprised)*100))
+    var genderRec = detections.gender
+    var ageRec = parseInt(detections.age)+" Years"
+    var genderPro = detections.genderProbability
  
    
 
@@ -84,6 +86,7 @@ video.addEventListener('play', () => {
     surprised.innerHTML = surprisedPer+'%'
 
     gender.innerHTML = genderRec
+    age.innerHTML = ageRec
     genderPer.innerHTML = parseInt(genderPro*100)+"%"
 
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
