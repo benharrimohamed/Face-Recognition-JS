@@ -9,6 +9,7 @@ const surprised = document.getElementById('surprised')
 const gender = document.getElementById('gender')
 const genderPer = document.getElementById('genderPer')
 
+
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/weights'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/weights'),
@@ -28,7 +29,7 @@ function OpenWebCam ()
       )
 
 }
- 
+
 
 video.addEventListener('play', () => {
   const canvas = faceapi.createCanvasFromMedia(video)
@@ -49,14 +50,15 @@ video.addEventListener('play', () => {
         withFaceLandmarks().
         withFaceExpressions().
         withAgeAndGender()
-
+    
+    if (detections) {
     var naturalPer = parseInt(((detections.expressions.neutral)*100))
-    var happyPer = parseInt(((detections.expressions.happy)*100))
-    var sadPer = parseInt(((detections.expressions.sad)*100))
-    var angryPer = parseInt(((detections.expressions.angry)*100))
-    var surprisedPer = parseInt(((detections.expressions.surprised)*100))
-    var genderRec = detections.gender
-    var genderPro = detections.genderProbability
+    var happyPer = await  parseInt(((detections.expressions.happy)*100))
+    var sadPer = await  parseInt(((detections.expressions.sad)*100))
+    var angryPer = await parseInt(((detections.expressions.angry)*100))
+    var surprisedPer = await parseInt(((detections.expressions.surprised)*100))
+    var genderRec = await detections.gender
+    var genderPro = await  detections.genderProbability
  
    
 
@@ -88,6 +90,7 @@ video.addEventListener('play', () => {
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections) 
+  }
     
   }, 100)
 })
