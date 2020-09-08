@@ -1,0 +1,16 @@
+.card-body {
+
+	padding: 0px !important;
+}
+
+
+#canvas {
+
+	z-index: 999px;
+	position: absolute;
+}
+
+* {
+
+	margin : 0;
+}
