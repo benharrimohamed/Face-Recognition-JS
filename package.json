@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/benharrimohamed/Face-Recognition-JS#readme",
   "dependencies": {
+    "@tensorflow/tfjs-node": "^2.3.0",
     "express": "^4.17.1"
   }
 }
