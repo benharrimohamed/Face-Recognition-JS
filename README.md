@@ -41,7 +41,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-<h1>More information about this project</h1>
+<h1>About the project</h1>
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
