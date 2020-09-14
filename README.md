@@ -27,12 +27,12 @@
     <img src="images/logo.jpg" alt="Logo" width="100" height="100">
   </a>
 
-  <h3 align="center">PathFinderJS</h3>
+  <h3 align="center">Face Recognition with JS</h3>
 
   <p align="center">
-    Path finder algorithmes visiualisation with JavaScript
+    A face recognition web application using Face-api.js
     <br />
-  <a href="https://pathfinderjs.herokuapp.com/"><strong>Preview App</strong></a>
+  <a href="https://face-recognition-withjs.herokuapp.com/"><strong>Preview App</strong></a>
     <br />
   </p>
 </p>
@@ -41,122 +41,31 @@
 
 
 <!-- ABOUT THE PROJECT -->
-<h1>About The Project</h1>
+<h1>More information about this project</h1>
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<div>
-<img src="images/screenshot_2.JPG" alt="screenshot2">
-</div>
 
-<p>Path finder algorithmes are very used when we talk about web development or software engineering in general , each algorithme has it own way to calculate the shortest path between tow point in a given map , in this web application i tried to visualise some of these algorithmes using javascript and some styling.</p>
+<p>This is a simple implementation for the face-api.js library</p>
 
-<h3>Used algorithmes :</h3>
+<h3>Features :</h3>
 <ul> 
-  <li>A * (A star ) Algorithme </li>
-  <li>Dijkstra Algorithme </li>
-</ul>
-
-
-<h3>Application features :</h3>
-<ul> 
-  <li>Generate new map with/without walls</li>
-  <li>Search using diagonls</li>
-  <li>Set custom start/target point </li>
-  <li>Set your own walls on the map</li>
-  <li>Control the search speed</li>
+  <li>Face recognition</li>
+  <li>Face expression recognition</li>
+  <li>Age recognition</li>
+  <li>Gender recognition</li>
 </ul>
 
 
 <h3>Used technologies :</h3>
 <ul> 
-  <li>JavaScript</li>
-  <li>Bootstrap </li>
-  <li>CSS </li>
+  <li>Face-Api.js</li>
+  <li>Bootstrap</li>
   <li>HTML5</li>
 </ul>
 
 
-<!-- LICENSE -->
-<h3>A* algorithme with JavaScript (dist/js/astar.js):</h3>
-
-```javascript
-  
-  async function astar() {
-  if (start == null) {
-    createStats("alert-danger", "Start point is missing !");
-    return;
-  }
-
-  if (end == null) {
-    createStats("alert-danger", "End point is missing !");
-    return;
-  }
-
-  while (openSet.length > 0) {
-    
-    var winner = 0;
-    for (i = 0; i < openSet.length; i++) {
-      if (openSet[i].f < openSet[winner].f) {
-        winner = i;
-      }
-    }
-
-    var current = openSet[winner];
-
-    if (current === end) {
-      path = [];
-      var tmp = current;
-      path.push(tmp);
-      while (tmp.previous) {
-        path.push(tmp.previous);
-        tmp = tmp.previous;
-      }
-
-      for (i = path.length - 1; i > 0; i--) {
-        path[i].update("path");
-        await sleep(pathSpeed);
-      }
-
-      createStats("alert-success", "We found the target point ");
-      return;
-    }
-
-    removeSpot(openSet, current);
-
-    for (i = 0; i < openSet.length; i++) openSet[i].update("checking");
-    closeSet.push(current);
-    for (i = 0; i < closeSet.length; i++) closeSet[i].update("visited");
-
-    var nieghbors = current.nieghbors;
-    for (i = 0; i < nieghbors.length; i++) {
-      var nieghbor = nieghbors[i];
-
-      if (!closeSet.includes(nieghbor) && !nieghbor.isWall) {
-        var tmpG = nieghbor.g + 1;
-
-        if (openSet.includes(nieghbor)) {
-          if (tmpG < nieghbor.g) {
-            nieghbor.g = tmpG;
-          }
-        } else {
-          nieghbor.g = tmpG;
-          openSet.push(nieghbor);
-        }
-
-        nieghbor.h = heuristic(nieghbor.returnElement(), end.returnElement());
-        nieghbor.f = nieghbor.g + nieghbor.h;
-        nieghbor.previous = current;
-      }
-    }
-
-    await sleep(searchSpeed);
-  }
-
-  createStats("alert-info", "We coudn't find you target point ");
-}
-```  
   
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
