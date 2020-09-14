@@ -30,7 +30,7 @@
   <h3 align="center">Face Recognition with JS</h3>
 
   <p align="center">
-    A face recognition web application using Face-api.js
+    A face recognition web application using face-api.js
     <br />
   <a href="https://face-recognition-withjs.herokuapp.com/"><strong>Preview App</strong></a>
     <br />
